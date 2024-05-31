@@ -12,10 +12,14 @@ const collectEmployees = function() {
 
     const lastName = prompt("Enter employee's last name:");
 
-    const salary = prompt(prompt("Enter employee's salary:"));
+    let salary = prompt(("Enter employee's salary:"));
+   
     if (isNaN(salary)) {
-      salary = 0;
+      salary = 0.00;
+    }else{
+      salary = parseFloat(salary);
     }
+  
 
     // Create employee object and add to array
     employees.push({
@@ -36,42 +40,20 @@ const collectEmployees = function() {
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
-  // Calculate total salary
-  /*let totalSalary = 0;
-  employeesArray.forEach(employee => {
-    totalSalary += employee.salary;
-  });
-
-  // Calculate average salary
-  const averageSalary = totalSalary / employeesArray.length;
-
-  // Display average salary
-  console.log('Average Salary:', averageSalary.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
-  }));*/
+  
   let sum=0;
   for(let i=0; i< employeesArray.length; i++){
     sum+=employeesArray[i].salary;
   }
-  console.log(sum/employeesArray.length);
+  console.log("average salary is: $" +(sum/employeesArray.length).toFixed(2));
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
- /* const randomIndex = Math.floor(Math.random() * employeesArray.length);
 
-  // Get random employee
-  const randomEmployee = employeesArray[randomIndex];
-
-  // Display random employee
-  console.log('Random Employee:', randomEmployee.firstName, randomEmployee.lastName, '-', randomEmployee.salary.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
-  }));*/
   const index = Math.floor(Math.random() * employeesArray.length);
-  console.log(employeesArray[index]);
+  console.log("The random winner is:" + employeesArray[index].firstName +" " + employeesArray[index].lastName);
 
 
 
