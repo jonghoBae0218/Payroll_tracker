@@ -15,8 +15,8 @@ const collectEmployees = function() {
 
     let salary = prompt(("Enter employee's salary:"));
    
-    //If salary is not num
-    if (isNaN(salary)) {
+    //If salary is not number or nothing was given as input
+    if (isNaN(salary)|| salary.length==0) {
       salary = 0.00;
     }else{
       //if it is num, change the string to float
